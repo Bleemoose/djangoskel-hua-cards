@@ -1,0 +1,12 @@
+{% extends 'accounts/afterbase.html' %}
+
+{% block middle %}
+
+<div class="alert alert-success">
+   <div class="email-message">
+   To email που δώσατε δεν ταιριάζει με αυτό που έχει δηλώθεί για τον χρήστη <br>
+   <a href = "{% url 'login' %}"> Επιστροφή </a>
+   </div>
+</div>
+
+{% endblock %}

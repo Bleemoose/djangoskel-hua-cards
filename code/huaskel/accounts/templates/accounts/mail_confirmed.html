@@ -1,0 +1,13 @@
+{% extends 'accounts/afterbase.html' %}
+
+{% block middle %}
+
+
+<div class="alert alert-success">
+   <div class="email-message">
+   H διεύθυνση ηλεκτρονικού ταχυδρομείου επιβεβαιώθηκε. Ευχαριστούμε! <br>
+   <a href = "{{url}}"> {{message}} </a>
+   </div>
+</div>
+
+{% endblock %}

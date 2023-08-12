@@ -1,0 +1,62 @@
+footer {
+  font-size: 9px;
+  color: #00b;
+  text-align: left;
+  line-height: 100%;
+  border-top: 1px solid;
+  width: 100%;
+}
+
+@page {
+  size: A4;
+  margin: 11mm 17mm 17mm 17mm;
+}
+
+@media print {
+  footer {
+    position: fixed;
+    bottom: 0;
+  }
+
+  .content-block, p {
+    page-break-inside: avoid;
+  }
+
+  html, body {
+    width: 185mm;
+    height: 297mm;
+  }
+}
+
+@media print {
+    .pagebreak { page-break-before: always; } /* page-break-after works, as well */
+}
+
+h2 {
+    font-size: 14px; }
+
+h4 {
+    font-size: 12px;
+}
+
+p {
+  font-size: 11px;
+}
+
+table {
+  font-size: 11px;
+  width : 100%;
+}
+
+table.hualogo {
+  table-layout: auto;
+  width: 640px;
+  border: 1px solid black;
+}
+
+td, th {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+}

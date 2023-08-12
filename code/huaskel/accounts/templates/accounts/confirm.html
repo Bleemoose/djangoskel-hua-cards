@@ -1,0 +1,16 @@
+{% extends 'accounts/afterbase.html' %}
+
+{% block middle %}
+
+{% if email %}
+<div class="alert alert-success">
+   <div class="email-message">
+   Έχουμε στείλει ένα e-mail επιβεβαιώσης στη διεύθυνση: <br>
+   <strong> {{ email }} </strong> <br>
+   που περιέχει οδηγίες για το πως θα ολοκληρώσετε την καταχώρηση της διεύθυνσης ηλεκτρονικού ταχυδρομείου σας. <br>
+   <a href = "{% url 'profile' %}"> Πηγαίνετε πίσω στα στοιχεία του λογαριασμού σας. </a>
+   </div>
+</div>
+{% endif %}
+
+{% endblock %}

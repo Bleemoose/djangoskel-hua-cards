@@ -1,0 +1,200 @@
+body {
+  padding: 0;
+  margin: 0;
+  background: #f2f6e9;
+}
+
+.navbar {
+  background: #09f;
+}
+
+.navbar-text-username {
+  color: #fff;
+  font-family: 'Dekko';
+  font-size: 1.2rem;
+}
+
+.navbar-flag {
+  margin: 1px 1px 1px 1px;
+  padding: 1px 1px 1px 1px;
+}
+
+.nav-link,
+.navbar-brand {
+  color: #fff;
+  cursor: pointer;
+}
+
+.navbar-brand p {
+  color: #000;
+}
+
+.nav-link {
+  margin-right: 1em !important;
+}
+
+.nav-link:hover {
+  color: #000
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+.navbar-username {
+  color: #fff;
+}
+
+.nav-link.sidelink {
+  color: #00f;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.nav-link.sidelink:hover {
+  color: #00a;
+}
+
+.header {
+  background-image: url('images/hua2.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.8);
+}
+
+.description {
+  left: 50%;
+  position: absolute;
+  top: 45%;
+  transform: translate(-50%,-65%);
+  text-align: center;
+}
+
+.description h1 {
+  color: #0055ff;
+}
+
+.description p {
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+.description button {
+  border: 1px solid #6ab466;
+  background: #6ab446;
+  border-radius: 0;
+  color: #fff;
+}
+
+
+.description button:hover {
+  border: 1px solid #fff;
+  background: #fff;
+  border-radius: 0;
+  color: #000;
+}
+
+.features {
+  margin: 4em auto;
+  padding: 1em;
+  position: relative;
+}
+
+.feature-title {
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.features img {
+  -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  margin-bottom: 16px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: 60%;
+}
+
+.login-box {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.9rem;
+  line-height: 1.1;
+  text-align: left;
+  font-weight: bold;
+}
+
+.register-box {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.9rem;
+  line-height: 1.1;
+  text-align: left;
+  font-weight: bold;
+}
+
+.register-box th,
+.register-box td {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.login-form {
+  font-size: 0.9rem;
+  height: 1.6rem;
+}
+.login-box p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.forgot-create {
+  line-height: 1.4rem;
+}
+.btn-login {
+   font-variant: small-caps;
+   font-weight: bold;
+   padding-top: 0.2rem;
+}
+
+.btn-flag {
+  padding: 0.2rem;
+}
+
+.login-label {
+  color: #fff;
+}
+
+.email-message {
+  color: #000;
+  line-height: 200%;
+}
+
+.page-footer {
+  background-color: #222;
+  color: #ccc;
+  padding: 60px 0 30px;
+}
+.footer-copyright {
+  color: #666;
+  padding: 40px 0;
+}

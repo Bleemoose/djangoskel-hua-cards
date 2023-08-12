@@ -1,0 +1,16 @@
+{% extends 'admin/change_form.html' %}
+
+{% block submit_buttons_bottom %}
+    {{ block.super }}
+
+    <div class="submit-row">
+        <label for="stations">Choose a station:</label>
+              <select name="stations" id="stations">
+                {% for item in mycontext %}
+                    <option value="{{ item.id }}">Station {{ item.id }} ({{ item.station_address }})</option>
+                {% endfor %}
+              </select>
+
+        <input type="submit" value="Set station for pairing" name="_make-pairing">
+    </div>
+{% endblock %}

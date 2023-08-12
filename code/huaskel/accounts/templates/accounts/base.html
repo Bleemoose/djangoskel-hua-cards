@@ -1,0 +1,62 @@
+
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+  <title>{% block title %}myaccount @ HUA{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'accounts/main.css' %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+</head>
+<body>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <header class="page-header header container-fluid">
+    <div class="overlay"> </div>
+  </header>
+
+  {% block huapic %}
+  <script src="{% static 'accounts/main.js' %}"></script>
+
+  <div class="description">
+    {% block middle %}
+    <h1> Myaccount @ HUA </h1>
+    <p> Εδώ μπορείτε να διαχειριστείτε τον λογαριασμό σας </p>
+
+    <a class="btn btn-primary" href="{% url 'login' %}"> Ξεκινήστε! </a>
+    {% endblock %}
+  </div>
+
+  {% endblock %}
+
+  {% block pagefooter %}
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12">
+          <h6 class="text-uppercase font-weight-bold"> Πληροφορίες </h6>
+          <p> Σχεδιασμός ιστοσελίδας:</p>
+          <p> Κέντρο Πληροφορικής και Δικτύων </p>
+          <p> Χαροκόπειο Πανεπιστήμιο </p>
+          <br/>
+          <p> Επικοινωνία με τον διαχειριστή στο: </p>
+          <p> noc at hua.gr </p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+        <h6 class="text-uppercase font-weight-bold">Διεύθυνση</h6>
+        <p> Ελ. Βενιζέλου 70 </p>
+        <br/>
+        <p> Καλλιθέα Αθήνα,
+        <br/> ΤΚ 17771 </p>
+       </div>
+       </div>
+    </div>
+  </footer>
+{% endblock %}
+</body>
+</html>

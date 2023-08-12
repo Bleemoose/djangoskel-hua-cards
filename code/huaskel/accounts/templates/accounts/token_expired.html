@@ -1,0 +1,12 @@
+{% extends 'accounts/afterbase.html' %}
+
+{% block middle %}
+
+<div class="alert alert-danger">
+   <div class="email-message">
+  Το αίτημα σας για αλλαγή κωδικού έχει λήξει.    <br>
+   <a href = "{% url 'login' %}"> Δημιουργήστε νέο </a>
+   </div>
+</div>
+
+{% endblock %}

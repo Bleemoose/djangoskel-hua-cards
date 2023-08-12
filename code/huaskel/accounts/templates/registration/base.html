@@ -1,0 +1,63 @@
+
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+  <title>{% block title %}Myapps @ HUA{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'accounts/main.css' %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" crossorigin="anonymous">
+</head>
+<body>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+
+  <header class="page-header header container-fluid">
+    <div class="overlay"> </div>
+  </header>
+
+  {% block huapic %}
+  <script src="{% static 'accounts/main.js' %}"></script>
+
+  <div class="description">
+    {% block middle %}
+    <h1> Welcome to the Harokopio University of Athens MSc application portal </h1>
+    <p> From here you can apply for any of the MSc courses currently offered by our University and check your existing applications </p>
+
+    <button class="btn btn-outline-secondary btn-lg"> Start </button>
+    {% endblock %}
+  </div>
+
+  {% endblock %}
+
+  {% block pagefooter %}
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12">
+          <h6 class="text-uppercase font-weight-bold"> Site Information </h6>
+          <p> This portal is designed and maintaind by the HUA NOC team
+          <br/> Site administrator can be reached at noc at hua.gr </p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+        <h6 class="text-uppercase font-weight-bold">Location</h6>
+        <p> Main campus:
+        <br/> El. Venizelou 70,
+        <br/> Kallithea Athens,
+        <br/> GR 17771, Greece
+        <p> Informatics building:
+        <br/> Omirou 9,
+        <br/> Tavros Athens,
+        <br/> GR 17778, Greece
+       </div>
+       </div>
+    </div>
+  </footer>
+{% endblock %}
+</body>
+</html>

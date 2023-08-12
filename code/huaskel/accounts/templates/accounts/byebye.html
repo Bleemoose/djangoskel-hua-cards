@@ -1,0 +1,12 @@
+{% extends 'accounts/afterbase.html' %}
+
+{% block middle %}
+
+<div class="alert alert-success">
+   <div class="email-message">
+   Βγήκατε από το σύστημα. Καλή σας συνέχεια! <br>
+   <a href = "{% url 'login' %}"> Συνδεθείτε ξανά </a>
+   </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    container_name: db
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=huaskel
+      - POSTGRES_USER=huaskel
+      - POSTGRES_PASSWORD=geros2001
+    ports:
+      - "5000:5432"
+
+  web:
+    build: .
+    command: /run/django_init.sh
+#    command: python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000
+#    command: "gunicorn --workers=2 --bind=0.0.0.0:8000 huaaccounts.wsgi:application"
+    container_name: web
+    environment:
+      - DJANGO_PROJECT=huaskel
+      - MAKE_MIGRATIONS=True
+      - MIGRATE=True
+      - DJANGO_SUPERUSER_USERNAME=admin@internal.com
+      - DJANGO_SUPERUSER_EMAIL=admin@internal.com
+      - DJANGO_SUPERUSER_PASSWORD=pass1294
+      - DB_HOST=db
+      - DB_USER=huaskel
+      - DB_PASSWORD=geros2001
+      - DB_NAME=huaskel
+      - DJANGO_APP=accounts
+      - COLLECT_STATIC=True
+      - DEBUG=True
+      - AUTH_LDAP_SERVER_URI=ldap://10.100.51.117
+      - AUTH_LDAP_BIND_DN=${LDAP_BIND_DN}
+      - AUTH_LDAP_BIND_PASSWORD=${LDAP_BIND_PASS}
+      - AUTH_LDAP_START_TLS=True
+      - AUTH_LDAP_USER_SEARCH_ATTR=email
+      - AUTH_LDAP_BASE_DN=dc=hua,dc=gr
+      - AUTH_LDAP_INTERNAL_DOMAIN=@hua.gr
+      - AUTH_LDAP_GIVEN_NAME=givenName
+      - AUTH_LDAP_SN=sn
+      - AUTH_LDAP_TITLE=title
+      - AUTH_LDAP_DEPARTMENT=schacPersonalPosition
+      - AUTH_LDAP_EMAIL=email
+
+    volumes:
+      - ./code:/code
+      - ./ldap/ldap.conf:/etc/ldap/ldap.conf
+      - ./logs:/var/log
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./code/static:/static
+    depends_on:
+      - web

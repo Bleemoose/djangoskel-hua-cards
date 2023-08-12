@@ -1,0 +1,55 @@
+{% extends 'accounts/base.html' %}
+{% load i18n %}
+{% block middle %}
+
+{% if form.errors %}
+<div class="alert alert-danger">
+  <strong>Oops!</strong> {% trans 'Δεν δώσατε σωστό συνδυασμό ονόματος χρήστη και συνθηματικού' %}
+</div>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <div class="alert alert-danger">
+      <strong>Oops!</strong> {% trans 'Είστε ήδη συνδεδεμένος.' %}
+    </div>
+
+    {% else %}
+    <div class="alert alert-primary">
+      {% trans 'Παρακαλούμε συνδεθείτε με τον λογαριασμό σας.' %}
+    </div>
+
+    {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+  {% csrf_token %}
+  <div class="container">
+    <div class="login-box">
+    <label class="login-label" for="id_username">{% trans 'Ε-mail:' %}</label> <br>
+    <input type="text" name="username" autofocus autocapitalize="none" autocomplete="{% trans 'το e-mail σας' %}" maxlength="150" required id="id_username" class="form-control login-form"> <br>
+    <label class="login-label" for="id_password">{% trans 'Συνθηματικό' %}</label>
+    <input id="id_password" name="password" autocomplete="{% trans 'o μυστικός σας κωδικός' %}" required id="id_password"
+                   type="password" class="form-control login-form"> <br>
+    <table style="width:100%">
+    <tr>
+      <td class="forgot-create" style="width=70%">
+        <a class="btn btn-danger" role = "button" href="{% url 'forgotpassword' %}" >
+           {% trans 'Ξέχασα τον κωδικό μου!' %}
+        </a>
+      </td>
+    <td style="width:30%;" class="align-middle">
+      <div class="text-right">
+      <input class="btn btn-primary" type="submit" value="{% trans 'Εισοδος' %}"> </input>
+      </div>
+    </td>
+    </tr>
+    </table>
+    <input type="hidden" name="next" value="{{ next }}">
+
+    </div>
+  </div>
+</form>
+
+
+{% endblock %}

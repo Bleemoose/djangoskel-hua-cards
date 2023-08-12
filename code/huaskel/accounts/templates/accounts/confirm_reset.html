@@ -1,0 +1,12 @@
+{% extends 'accounts/afterbase.html' %}
+
+{% block middle %}
+
+<div class="alert alert-success">
+   <div class="email-message">
+   Το συνθηματικό σας άλλαξε <br>
+   <a href = "{% url 'login' %}"> Συνδεθείτε τώρα </a>
+   </div>
+</div>
+
+{% endblock %}

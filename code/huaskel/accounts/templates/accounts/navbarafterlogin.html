@@ -1,0 +1,25 @@
+{% load static %}
+{% load i18n %}
+
+<nav class = "navbar navbar-expand-md">
+  <a class = "navbar-brand" href="#"> <img src="{% static 'accounts/images/hualogo.png' %}" width="40px" </img> </a>
+  {% if user.is_authenticated %}
+  <span class="navbar-text navbar-text-username">
+    Καλώς ήρθες  <i> {{ request.user.username }} </i>
+  </span>
+  {% endif %}
+  <span class="navbar-text">
+  <form class="navbar-form pull-left" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+  <input class="form-control-sm" name="next" type="hidden" value="{{ redirect_to }}">
+  <input class="form-control-sm" name="language" type="hidden" value="el">
+  <button type="submit" class="navbar-flag btn btn-flag bg-transparent"> <span class="flag-icon flag-icon-gr"> </span> </button>
+  </form>
+  </span>
+  <span class="navbar-text">
+  <form class="navbar-form pull-left" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+  <input class="form-control-sm" name="next" type="hidden" value="{{ redirect_to }}">
+  <input class="form-control-sm" name="language" type="hidden" value="en">
+  <button type="submit" class="navbar-flag btn btn-flag bg-transparent"> <span class="flag-icon flag-icon-gb"> </span> </button>
+  </form>
+  </span>
+</nav>

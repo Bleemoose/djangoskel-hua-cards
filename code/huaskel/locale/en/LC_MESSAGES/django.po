@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-02 07:01+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: huaskel/accounts/models.py:8
+msgid "username"
+msgstr ""
+
+#: huaskel/accounts/models.py:9
+msgid "email address"
+msgstr ""
+
+#: huaskel/accounts/models.py:10
+msgid "title"
+msgstr ""
+
+#: huaskel/accounts/models.py:11
+msgid "department"
+msgstr ""
+
+#: huaskel/accounts/templates/accounts/profile.html:4
+msgid "Tα στοιχεία σας:"
+msgstr "Your information:"
+
+#: huaskel/accounts/templates/accounts/profile.html:6
+msgid "Όνομα λογαριασμού:"
+msgstr "Account name:"
+
+#: huaskel/accounts/templates/accounts/profile.html:7
+msgid "Όνομα χρήστη:"
+msgstr "Given name:"
+
+#: huaskel/accounts/templates/accounts/profile.html:11
+#: huaskel/accounts/templates/accounts/profile.html:18
+msgid "Δεν έχει οριστεί"
+msgstr "Undefined"
+
+#: huaskel/accounts/templates/accounts/profile.html:14
+msgid "Επώνυμο χρήστη: "
+msgstr "Sirname: "
+
+#: huaskel/accounts/templates/accounts/profile.html:23
+msgid "Έξοδος από το σύστημα"
+msgstr "Logout"
+
+#: huaskel/accounts/templates/registration/login.html:7
+msgid "Δεν δώσατε σωστό συνδυασμό ονόματος χρήστη και συνθηματικού"
+msgstr ""
+
+#: huaskel/accounts/templates/registration/login.html:14
+msgid "Είστε ήδη συνδεδεμένος."
+msgstr ""
+
+#: huaskel/accounts/templates/registration/login.html:19
+msgid "Παρακαλούμε συνδεθείτε με τον λογαριασμό σας."
+msgstr ""
+
+#: huaskel/accounts/templates/registration/login.html:29
+msgid "Ε-mail:"
+msgstr ""
+
+#: huaskel/accounts/templates/registration/login.html:30
+msgid "το e-mail σας"
+msgstr ""
+
+#: huaskel/accounts/templates/registration/login.html:31
+msgid "Συνθηματικό"
+msgstr ""
+
+#: huaskel/accounts/templates/registration/login.html:32
+msgid "o μυστικός σας κωδικός"
+msgstr ""
+
+#: huaskel/accounts/templates/registration/login.html:38
+msgid "Ξέχασα τον κωδικό μου!"
+msgstr ""
+
+#: huaskel/accounts/templates/registration/login.html:43
+msgid "Εισοδος"
+msgstr ""
+
+#: huaskel/huaskel/settings.py:135
+msgid "English"
+msgstr ""
+
+#: huaskel/huaskel/settings.py:136
+msgid "Greek"
+msgstr ""
