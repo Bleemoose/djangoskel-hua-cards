@@ -1,29 +1,49 @@
 {% extends 'accounts/afterbase.html' %}
 {% load i18n %}
 {% block middle %}
-  <h4> {% trans 'Tα στοιχεία σας:' %} </h4>
-  <br>
+    <h4> {% trans 'Tα στοιχεία σας:' %} </h4>
+    <br>
 
 
 
-  <p> {% trans 'Όνομα λογαριασμού:' %} {{user.username}} </p>
-  <p> {% trans 'Όνομα χρήστη:' %}
-    {% if user.first_name %}
-    {{user.first_name}}
-    {% else %}
-    <i> {% trans 'Δεν έχει οριστεί' %} </i>
-    {% endif %}
-  </p>
-  <p> {% trans 'Επώνυμο χρήστη: ' %}
-    {% if user.last_name %}
-    {{user.last_name}}
-    {% else %}
-    <i> {% trans 'Δεν έχει οριστεί' %} </i>
-    {% endif %} </p>
-  </br>
-  </br>
-  <a class="btn btn-danger" role = "button" href="{% url 'logout' %}" >
-     <i class="material-icons" style="font-size:1.2rem;color:white;">done</i> {% trans 'Έξοδος από το σύστημα' %}
-  </a>
+    <p> {% trans 'Όνομα λογαριασμού:' %} {{ user.username }} </p>
+    <p> {% trans 'Όνομα χρήστη:' %}
+        {% if user.first_name %}
+            {{ user.first_name }}
+        {% else %}
+            <i> {% trans 'Δεν έχει οριστεί' %} </i>
+        {% endif %}
+    </p>
+    <p> {% trans 'Επώνυμο χρήστη: ' %}
+        {% if user.last_name %}
+            {{ user.last_name }}
+        {% else %}
+            <i> {% trans 'Δεν έχει οριστεί' %} </i>
+        {% endif %}
+    </p>
+    <p> Card Assigned:
+        {% if card %}
+            {{ card }}
+        {% else %}
+            No card found
+        {% endif %}
+    </p>
+    <p> Last card registry:
+        {% if card %}
+            {{ last_registry }}
+        {% else %}
+            No registries found
+        {% endif %}
+    </p>
+
+    </br>
+    </br>
+    <a class="btn btn-danger" role="button" href="{% url 'logout' %}">
+        <i class="material-icons" style="font-size:1.2rem;color:white;">done</i> {% trans 'Έξοδος από το σύστημα' %}
+    </a>
+
+    <a class="btn btn-primary" role="button" href="/api/manualCheckIn">
+        Manually Check-In card
+    </a>
 
 {% endblock %}

@@ -10,6 +10,7 @@ from django.http import HttpResponse
 
 
 # Register your models here.
+#TODO fix crash when delete card thats waiting for pair
 @admin.register(Card)
 class CardAdmin(admin.ModelAdmin):
 
@@ -71,6 +72,6 @@ class CardRegistriesAdmin(admin.ModelAdmin):
 
     actions = ["export_as_csv"]
 
-    search_fields = ["id","timestamp","owner__username","owner__first_name","owner__last_name"]
+    search_fields = ["id","timestamp","owner__username","owner__first_name","owner__last_name", "owner__department"]
 
 admin.site.register(Station)

@@ -12,4 +12,4 @@ RUN pip3 install -r /reqs/requirements.txt
 COPY ./django_init.sh /run
 RUN chmod +x /run/django_init.sh
 COPY ./code /code
-CMD /run/django_init.sh
+CMD  sh /run/django_init.sh

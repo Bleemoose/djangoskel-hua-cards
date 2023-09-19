@@ -35,7 +35,8 @@ SECRET_KEY = '@d%ay!8&l+6jh0@t7@qlw(+coi+-a-gz04)554yw%bm5728z*w'
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 
-ALLOWED_HOSTS = ['accounts.ditapps.hua.gr', 'localhost']
+#!IMPORTANT! Remove the * from the allowed hosts in deployment
+ALLOWED_HOSTS = ['accounts.ditapps.hua.gr', 'localhost','*']
 
 
 # Application definition

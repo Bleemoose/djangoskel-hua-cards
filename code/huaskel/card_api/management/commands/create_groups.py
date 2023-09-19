@@ -33,11 +33,13 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         for group_name in GROUPS:
+            print("Creating " + str(group_name))
 
             new_group, created = Group.objects.get_or_create(name=group_name)
 
             # Loop models in group
             for app_model in GROUPS[group_name]:
+
 
                 # Loop permissions in group/model
                 for permission_name in GROUPS[group_name][app_model]:

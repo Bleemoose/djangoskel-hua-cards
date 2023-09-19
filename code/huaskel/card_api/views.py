@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import *
@@ -33,17 +33,28 @@ def get_ip_address(request):
 
 @api_view(['POST'])
 def checkInCard(request):
-    card_physical_id = request.data.get("card_id")
+    card_physical_id = request.data.get("id")
+    # I know there must be a better way to do this but its 3 am and I am tired
+    if card_physical_id == None:
+        print(str(request.get_full_path))
+        my_string = str(request.get_full_path)
+        my_string = my_string.split("id=", 1)[1]
+        id = my_string[:len(my_string) - 3]
+        print(id)
+
+        card_physical_id = id
+
+    # TODO: add if none and handling
     station_address = get_ip_address(request)
-    logger.info('Getting check-in request from: %s',station_address)
+
+    logger.info('Getting check-in request from: %s', station_address)
 
     station = get_object_or_404(Station, station_address=station_address)
-
 
     if station.is_waiting_for_pair:
 
         card = station.card_to_pair_with
-        logger.info('Pairing card with id: %s with physical id: %s', str(card.id) ,card_physical_id)
+        logger.info('Pairing card with id: %s with physical id: %s', str(card.id), card_physical_id)
 
         card.physical_card_id = card_physical_id
         card.save()
@@ -51,19 +62,18 @@ def checkInCard(request):
         station.card_to_pair_with = None
         station.save()
     else:
-        logger.info('Attempting to check-in card with physical id: %s',card_physical_id)
+        logger.info('Attempting to check-in card with physical id: %s', card_physical_id)
         card = get_object_or_404(Card, physical_card_id=card_physical_id)
         card.times_checked_in += 1
         card.save()
         is_checkout = False
         if CardRegistries.objects.filter(owner_id=card.owner).exists():
             last_registry = CardRegistries.objects.filter(owner_id=card.owner).order_by('-id')[0]
-            print(last_registry)
-            is_checkout = not(last_registry.is_checkout)
+            is_checkout = not (last_registry.is_checkout)
 
         registry_obj = CardRegistries(owner=card.owner, station_id=station.id, card_id=card.id, is_checkout=is_checkout)
         registry_obj.save()
-        logger.info('Card %s checked-in',str(card.id))
+        logger.info('Card %s checked-in', str(card.id))
 
     return Response(status.HTTP_200_OK)
 
@@ -80,3 +90,20 @@ def getCardRegistriesForUser(request):
     # if serializer.is_valid():
     # return JsonResponse(serializer.data, status=201)
     # return JsonResponse(serializer.errors, status=400)
+
+
+def manualCheckIn(request):
+
+    card = get_object_or_404(Card, owner_id=request.user.id)
+    logger.info('Attempting to MANUALLY check-in card :%s', card)
+    card.times_checked_in += 1
+    card.save()
+    is_checkout = False
+    if CardRegistries.objects.filter(owner_id=card.owner).exists():
+        last_registry = CardRegistries.objects.filter(owner_id=card.owner).order_by('-id')[0]
+        is_checkout = not (last_registry.is_checkout)
+
+    registry_obj = CardRegistries(owner=card.owner, station_id=Station.objects.all()[0].id, card_id=card.id, is_checkout=is_checkout)
+    registry_obj.save()
+    logger.info('Card %s checked-in', str(card.id))
+    return redirect('/')
