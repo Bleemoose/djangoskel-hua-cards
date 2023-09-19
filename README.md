@@ -1,7 +1,7 @@
 ## HUA EMPLOYEE TIME TRACKING SYSTEM
 
 ### About
-This project as thesis assigment and it's based on the huaskel authentication project. This application has been designed with the usage of physical Arduino card reader stations in mind and you can see a demo video here
+This project as thesis assigment and it's based on the huaskel authentication project. This application has been designed with the usage of physical Arduino card reader stations in mind and you can see a demo video [here](https://youtube.com/shorts/gB4t8IPaMvY?si=TU-KzXlb7p9TNzX9)
 
 ### Prerequisites
 You need to have `docker` and `docker-compose` installed in your system. For Ubuntu check out:
