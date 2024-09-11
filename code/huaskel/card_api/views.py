@@ -33,23 +33,31 @@ def get_ip_address(request):
 
 @api_view(['POST'])
 def checkInCard(request):
-    card_physical_id = request.data.get("id")
-    # I know there must be a better way to do this but its 3 am and I am tired
-    if card_physical_id == None:
-        print(str(request.get_full_path))
-        my_string = str(request.get_full_path)
-        my_string = my_string.split("id=", 1)[1]
-        id = my_string[:len(my_string) - 3]
-        print(id)
-
-        card_physical_id = id
-
-    # TODO: add if none and handling
     station_address = get_ip_address(request)
 
     logger.info('Getting check-in request from: %s', station_address)
 
     station = get_object_or_404(Station, station_address=station_address)
+
+
+    card_physical_id = request.data.get("id")
+    # I know there must be a better way to do this but its 3 am and I am tired
+    if card_physical_id == None:
+        print(str(request.get_full_path))
+        my_string = str(request.get_full_path)
+        #check if it contains ID
+        if "id=" in my_string:
+            my_string = my_string.split("id=", 1)[1]
+            id = my_string[:len(my_string) - 3]
+            print(id)
+        else:
+            logger.warning("No id found in request")
+            return Response(status.HTTP_400_BAD_REQUEST)
+
+        card_physical_id = id
+
+
+
 
     if station.is_waiting_for_pair:
 

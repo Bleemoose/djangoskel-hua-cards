@@ -34,6 +34,12 @@ def profile(request):
     # print(perm_tuple)
 
     card = Card.objects.filter(owner=user)
+    print(card)
+    if not card :
+      cardContext = "no card"
+    else :
+        cardContext = card[0]
+
     registries = CardRegistries.objects.filter(owner_id=user.id)
     last_registry = None
     if registries.__len__() > 0:
@@ -42,7 +48,7 @@ def profile(request):
     logger.info('User %s has accessed his profile page' % username)
 
     return render(request, 'accounts/profile.html',
-                  context={'user': user, 'card': card[0], 'last_registry': last_registry})
+                  context={'user': user, 'card': cardContext, 'last_registry': last_registry})
 
 
 @login_required

@@ -75,5 +75,5 @@ Scheduler.run_continuously = run_continuously
 def start_scheduler():
     scheduler = Scheduler()
     scheduler.every(10).minutes.do(pingStations)
-    scheduler.every().day.at('14:05').do(fixPendingRegistries)
+    scheduler.every().day.at('00:05').do(fixPendingRegistries)
     scheduler.run_continuously()

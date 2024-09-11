@@ -17,7 +17,7 @@ class CardAdmin(admin.ModelAdmin):
     def export_as_csv(self, request, queryset):
         meta = self.model._meta
         field_names = [field.name for field in meta.fields]
-
+        print(meta)
         response = HttpResponse(content_type='text/csv')
         response['Content-Disposition'] = 'attachment; filename={}.csv'.format(meta)
         response.write(u'\ufeff'.encode('utf8'))
